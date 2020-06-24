@@ -1,0 +1,37 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'api_client.dart';
+
+// **************************************************************************
+// RetrofitGenerator
+// **************************************************************************
+
+class _ApiClient implements ApiClient {
+  _ApiClient(this._dio, {this.baseUrl}) {
+    ArgumentError.checkNotNull(_dio, '_dio');
+    this.baseUrl ??= 'https://api.openweathermap.org/data/2.5/weather';
+  }
+
+  final Dio _dio;
+
+  String baseUrl;
+
+  @override
+  getExampleForName(name) async {
+    ArgumentError.checkNotNull(name, 'name');
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final Response<Map<String, dynamic>> _result = await _dio.request(
+        '?q=$name&appid=2121bdef55d2ebe6dae0ec9dfaa4e254',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'GET',
+            headers: <String, dynamic>{},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    final value = ExampleResponse.fromJson(_result.data);
+    return value;
+  }
+}
