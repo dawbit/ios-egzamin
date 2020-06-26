@@ -60,7 +60,7 @@ class ExampleDetailsScreen extends StatelessWidget {
 
   Widget get _title => Text('title');
 
-  Widget get _x => Text(_example.name);
+  Widget get _x => Text(_example.result);
 
   Widget get _mainInfo =>
       Text(

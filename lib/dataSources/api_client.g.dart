@@ -9,7 +9,7 @@ part of 'api_client.dart';
 class _ApiClient implements ApiClient {
   _ApiClient(this._dio, {this.baseUrl}) {
     ArgumentError.checkNotNull(_dio, '_dio');
-    this.baseUrl ??= 'https://api.openweathermap.org/data/2.5/weather';
+    this.baseUrl ??= 'http://sroczynski.pl/iosexamrest/examresult/';
   }
 
   final Dio _dio;
@@ -17,13 +17,12 @@ class _ApiClient implements ApiClient {
   String baseUrl;
 
   @override
-  getExampleForName(name) async {
-    ArgumentError.checkNotNull(name, 'name');
+  getExampleForName(result) async {
+    ArgumentError.checkNotNull(result, 'result');
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final Response<Map<String, dynamic>> _result = await _dio.request(
-        '?q=$name&appid=2121bdef55d2ebe6dae0ec9dfaa4e254',
+    final Response<Map<String, dynamic>> _result = await _dio.request('$result',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',

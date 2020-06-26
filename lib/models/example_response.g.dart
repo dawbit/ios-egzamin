@@ -8,11 +8,11 @@ part of 'example_response.dart';
 
 ExampleResponse _$ExampleResponseFromJson(Map<String, dynamic> json) {
   return ExampleResponse(
-    name: json['name'] as String,
+    result: json['result'] as String,
   );
 }
 
 Map<String, dynamic> _$ExampleResponseToJson(ExampleResponse instance) =>
     <String, dynamic>{
-      'name': instance.name,
+      'result': instance.result,
     };

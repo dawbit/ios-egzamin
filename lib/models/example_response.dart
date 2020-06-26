@@ -4,11 +4,8 @@ part 'example_response.g.dart';
 
 @JsonSerializable()
 class ExampleResponse {
-  //List<company> example;
-  String name;
-  //@JsonKey(name: 'company')
-  //Company company;
-  ExampleResponse({this.name});
+  String result;
+  ExampleResponse({this.result});
 
   //https://flutter.dev/docs/development/data-and-backend/json
   factory ExampleResponse.fromJson(Map<String, dynamic> json) => _$ExampleResponseFromJson(json);

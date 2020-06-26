@@ -5,6 +5,8 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:iosegzamin/models/example_response.dart';
 import 'package:iosegzamin/repositories/example_repository.dart';
 
+import 'package:fluttertoast/fluttertoast.dart';
+
 class ExampleBloc extends BlocBase {
   final ExampleRepository _exampleRepository;
 
@@ -16,9 +18,9 @@ class ExampleBloc extends BlocBase {
   BehaviorSubject<bool> _loadingExampleSubject = BehaviorSubject();
   Stream<bool> get loadingExampleObservable => _loadingExampleSubject.stream;
 
-  Future getExampleForName(String name) async {
+  Future getExampleForName(String result) async {
     _loadingExampleSubject.add(true);
-    _exampleRepository.getExampleForName(name)
+    _exampleRepository.getExampleForName(result)
         .then(_onExampleSuccess)
         .catchError(_onExampleError);
   }

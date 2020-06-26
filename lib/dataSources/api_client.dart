@@ -7,10 +7,10 @@ part 'api_client.g.dart';
 
 final client = ApiClient(Dio());
 
-@RestApi(baseUrl: 'https://api.openweathermap.org/data/2.5/weather')
+@RestApi(baseUrl: 'http://sroczynski.pl/iosexamrest/')
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String baseUrl}) = _ApiClient;
 
-  @GET("?q={name}&appid=2121bdef55d2ebe6dae0ec9dfaa4e254")
-  Future<ExampleResponse> getExampleForName(@Path() String name);
+  @GET("/examresult/{result}")
+  Future<ExampleResponse> getExampleForName(@Path() String result);
 }
